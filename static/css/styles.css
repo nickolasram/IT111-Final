@@ -171,3 +171,28 @@ aside svg{
            opacity:0;
          }
        }
+
+/* UPLOAD FILE CARD */
+.uploadwrapper{
+    width: 330px;
+    height: 60px;
+    background: #ccc;
+    padding: 15px;
+    margin: 150px auto;
+    border: 3px solid black;
+    border-radius: 3px;
+    position: relative;
+}
+.close{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding: 0 5px;
+  font-family: sans-serif;
+}
+.uploadwrapper h2{
+  margin-bottom: 10px;
+}

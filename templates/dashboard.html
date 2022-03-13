@@ -4,8 +4,8 @@
   <body class="dashboard">
     <header>
       <ul>
-        <li>{% user %}</li>
-        <li class="logout">Log out</li>
+        <li>{{ user }}</li>
+        <li><a href="/user/signout">Log out</a></li>
       </ul>
       <a href="" class="uploadbutton">
         <svg height="100" width="100">
@@ -22,17 +22,26 @@
         <h2>Recent Uploads</h2>
         {% for item in files %}
           <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
-            {{item}}</p>
+            {{item['original name']}}</p>
         {% endfor %}
       </main>
       <aside>
         <h2>Users</h2>
         {% for item in users %}
           <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
-            {{item}}</p>
+            {{item['name']}}</p>
         {% endfor %}
       </aside>
 
+    </div>
+
+    <div class="uploadwrapper hidden">
+      <a href="#" class="close">x</a>
+      <h2>Upload new File</h2>
+      <form method=post enctype=multipart/form-data name="upload-file">
+        <input type=file name=file>
+        <input type=submit value=Upload>
+      </form>
     </div>
 
   </body>

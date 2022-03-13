@@ -9,3 +9,6 @@ usercol = userdb.users
 # File Database
 filedb = client.file_objects
 filecol = filedb.files
+
+# File Repo
+repo = 'text_files_repo'

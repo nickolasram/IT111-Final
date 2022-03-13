@@ -23,8 +23,8 @@ class User:
     user['password'] = pbkdf2_sha256.encrypt(user['password'])
 
     # Check for existing email address
-    if usercol.find_one({ "email": user['email'] }):
-      return jsonify({ "error": "Email address already in use" }), 400
+    if usercol.find_one({ "name": user['name'] }):
+      return jsonify({ "error": "Name already in use" }), 400
 
     if usercol.insert_one(user):
       return self.start_session(user)

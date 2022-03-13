@@ -1,23 +1,26 @@
-from flask import Flask, render_template, session, redirect
-from functools import wraps
 import os
+from flask import Flask, render_template, session, redirect, flash, request
 from users import users
+from user_file.user_file import User_file
+from second import second
+from databaseconfig import repo, filecol, usercol
 
 app = Flask(__name__)
 app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
-# app.register_blueprint(second, url_prefix="/user")
+app.register_blueprint(second, url_prefix="/user")
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
+app.add_url_rule(
+    "/uploaded/<name>", endpoint="download_file", build_only=True
+)
 
-files = os.listdir("text_files_repo/")
+ALLOWED_EXTENSIONS = {'txt'}
 
-# Decorators
-def login_required(f):
-  @wraps(f)
-  def wrap(*args, **kwargs):
-    if 'logged_in' in session:
-      return f(*args, **kwargs)
-    else:
-      return redirect('/')
-  return wrap
+files = os.listdir(repo)
+
+
+def allowed_file(filename):
+  return '.' in filename and \
+         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.route('/')
@@ -33,9 +36,19 @@ def login():
   return render_template('login.html')
 
 
-@app.route('/dashboard/')
+@app.route('/dashboard/', methods=['GET', 'POST'])
 def dashboard():
-  return render_template('dashboard.html', files=files, users=users, user=session['user'])
+  if request.method == 'POST':
+    if 'file' not in request.files:
+      flash('No file part')
+      return redirect(request.url)
+    file = request.files['file']
+    if file.filename == '':
+      flash('No selected file')
+      return redirect(request.url)
+    if file and allowed_file(file.filename):
+      return User_file.upload(User_file, file)
+  return render_template('dashboard.html', files=filecol, users=usercol, user=session['user']['name'])
 
 
 if __name__ == '__main__':
