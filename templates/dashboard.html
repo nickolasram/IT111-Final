@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body class="dashboard">
+    <header>
+      <ul>
+        <li>{% user %}</li>
+        <li class="logout">Log out</li>
+      </ul>
+      <a href="" class="uploadbutton">
+        <svg height="100" width="100">
+          <g transform="scale(0.5)">
+            <circle cx="50" cy="50" r="40" stroke="#333" stroke-width="4" fill="lightgrey"/>
+            <polygon points="45,15 55,15 55,15 55,45 85,45 85,55 55,55 55,85 45,85 45,55 15,55 15,45 45,45" stroke="black" fill="grey"/>
+          </g>
+        </svg>
+      </a>
+
+    </header>
+    <div class="wrapper">
+      <main>
+        <h2>Recent Uploads</h2>
+        {% for item in files %}
+          <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
+            {{item}}</p>
+        {% endfor %}
+      </main>
+      <aside>
+        <h2>Users</h2>
+        {% for item in users %}
+          <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
+            {{item}}</p>
+        {% endfor %}
+      </aside>
+
+    </div>
+
+  </body>
+{% endblock %}

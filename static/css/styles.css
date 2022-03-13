@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightgrey;
+}
+a{
+    text-decoration: none;
+}
+.wrapper{
+    width: 940px;
+    margin: 20px auto;
+}
+/*Log in Page*/
+.login-page h1{
+    margin: 50px auto 30px;
+    display: block;
+    text-align: center;
+}
+.user-form{
+    background: white;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    width: 320px;
+    margin: 0 auto 30px;
+}
+.user-form h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.field{
+    display: block;
+    margin: 0 auto 10px 5px;
+}
+.field input[type="text"],
+.field input[type="password"]{
+    display: inline;
+}
+.user-form input[type="submit"]{
+    display: block;
+    padding: 5px 10px;
+    margin: 0 auto 10px;
+}
+.field label+input[type="text"]{
+    margin-left: 12px;
+}
+.field label+input[type="password"]{
+    margin-left: 15px;
+}
+.switch{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.hidden{
+    display:none;
+}
+.warning{
+    display: block;
+    margin: 0 auto;
+    font-size: .8em;
+    text-align: center;
+}
+
+/*Dashboard*/
+
+header ul{
+    float: right;
+    margin-right: 45px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 0 0 20px 0;
+}
+header li{
+    background: grey;
+    padding: 10px 15px;
+    list-style-type: none;
+    float: right;
+    border: 2px solid white;
+    display: block;
+    position: relative;
+    border-radius: 0 0 20px 0;
+    font-weight: bold;
+    color: white;
+}
+header ul li:first-of-type{
+    z-index: 1;
+}
+header ul li:last-of-type{
+    border-right: none;
+    position: absolute;
+    top: 20;
+    right: 45px;
+    transition: 0.25s;
+    height: 43px;
+    width: 85px;
+    visibility: hidden;
+    overflow: hidden;
+    padding: 10px auto;
+}
+header ul:hover li:last-of-type{
+    top: 20;
+    right: 109px;
+    width: auto;
+    visibility: visible;
+    border-radius: 0 0 0 0;
+    padding: 10px 15px;
+}
+header svg{
+    float: right;
+    clear: both;
+    margin-right: 10px;
+}
+main {
+    height: 500px;
+    width: 600px;
+    float: right;
+    background: white;
+    padding-top: 20px;
+}
+main,
+aside{
+    border: 3px solid black;
+}
+main h2,
+aside h2{
+    padding-left: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed lightgrey;
+    margin-bottom: 8px;
+}
+main p,
+aside p{
+    margin-left: 20px;
+    margin-bottom: 15px;
+
+}
+aside {
+    height: 500px;
+    width: 320px;
+    float: left;
+    background: white;
+    padding-top: 20px;
+}
+main svg,
+aside svg{
+    vertical-align: middle;
+}
+.triangle {
+        animation: jump 1.5s ease infinite;
+       }
+       @keyframes jump {
+         0% {
+           opacity:0;
+         }
+         10% {
+           opacity:0.1;
+         }
+         50% {
+           opacity:1;
+         }
+         90% {
+           opacity:0.1;
+         }
+         95% {
+           opacity:00;
+         }
+         100% {
+           opacity:0;
+         }
+       }

@@ -1,0 +1,42 @@
+from flask import Flask, render_template, session, redirect
+from functools import wraps
+import os
+from users import users
+
+app = Flask(__name__)
+app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
+# app.register_blueprint(second, url_prefix="/user")
+
+files = os.listdir("text_files_repo/")
+
+# Decorators
+def login_required(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return f(*args, **kwargs)
+    else:
+      return redirect('/')
+  return wrap
+
+
+@app.route('/')
+def home():
+  if 'logged_in' in session:
+    return redirect("/dashboard/")
+  else:
+    return redirect('/login/')
+
+
+@app.route('/login/')
+def login():
+  return render_template('login.html')
+
+
+@app.route('/dashboard/')
+def dashboard():
+  return render_template('dashboard.html', files=files, users=users, user=session['user'])
+
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=5000)
