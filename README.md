@@ -1,6 +1,6 @@
 # IT111-Final
 
-##Setting up your environment on an ubuntu AWS server:
+## Setting up your environment on an ubuntu AWS server:
 1. sudo apt install python3-pip
 2. sudo pip install passlib
 3. sudo pip install pymongo
