@@ -4,7 +4,7 @@
   <body class="profile">
     <header>
      <ul>
-       <li>{{ user }}</li>
+       <li>{{ self }}</li>
        <li><a href="/user/signout">Log out</a></li>
      </ul>
      <a href="/uploadfile/" class="uploadbutton">
@@ -21,7 +21,7 @@
        <main>
          <h2>Uploads from USER</h2>
          <div class="column">
-          {% for item in user_record["uploads"] %}
+          {% for item in user_uploads %}
           <div class="row">
             <a href="{{url_for('download_file', name=item[0])}}">
               <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>

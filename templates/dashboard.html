@@ -36,7 +36,7 @@
         <div class="column">
           {% for item in users %}
           <div class="row">
-            <a href="{{url_for('user_profile', user=item['name']">
+            <a href="{{url_for('user_profile', user=item['name'])}}">
               <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
                 {{item['name']}}</p>
             </a>

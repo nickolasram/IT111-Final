@@ -64,8 +64,8 @@ def download_file(name):
 
 @app.route('/user/<user>')
 def user_profile(user):
-  user_record = filecol.find({"name": user})
-  return render_template('profile.html', user_record=user_record)
+  user_record = usercol.findone({"name": user})
+  return render_template('profile.html', self=session['user']['name'], user_uploads=user_record["uploads"])
 
 
 if __name__ == '__main__':
