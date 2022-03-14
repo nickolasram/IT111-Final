@@ -1,5 +1,5 @@
 import os
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, session
 import uuid
 import datetime
 from uuid import uuid4
@@ -18,6 +18,7 @@ class User_file:
             "name": name,
             "original name": file.filename,
             "timestamp": timestamp,
+            "author": session['user']['name']
         }
         filecol.insert_one(upload)
         filename = secure_filename(file.filename)

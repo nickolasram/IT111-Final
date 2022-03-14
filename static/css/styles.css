@@ -63,6 +63,14 @@ a{
     font-size: .8em;
     text-align: center;
 }
+.error{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: red;
+    margin-bottom: 8px;
+    font-size: .8em;
+}
 
 /*Dashboard*/
 

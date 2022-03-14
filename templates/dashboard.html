@@ -24,13 +24,13 @@
           {% for item in files %}
           <div class="row">
             <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
-              {{item['original name']}}&emsp;{{item['timestamp'].strftime('%d-%m-%Y %H:%M')}}</p>
+              {{item['original name']}}&emsp;by {{item['author']}}&emsp;at {{item['timestamp'].strftime('%d-%m-%Y %H:%M')}}</p>
           </div>
           {% endfor %}
         </div>
       </main>
       <aside>
-        <h2>Users</h2>
+        <h2>New Users</h2>
         <div class="column">
           {% for item in users %}
             <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
