@@ -22,7 +22,7 @@ class User:
     # Encrypt the password
     user['password'] = pbkdf2_sha256.encrypt(user['password'])
 
-    # Check for existing email address
+    # Check for existing name
     if usercol.find_one({ "name": user['name'] }):
       return jsonify({ "error": "Name already in use" }), 400
 
@@ -38,7 +38,7 @@ class User:
   def login(self):
 
     user = usercol.find_one({
-      "email": request.form.get('email')
+      "name": request.form.get('name')
     })
 
     if user and pbkdf2_sha256.verify(request.form.get('password'), user['password']):

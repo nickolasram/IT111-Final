@@ -20,17 +20,23 @@
     <div class="wrapper">
       <main>
         <h2>Recent Uploads</h2>
-        {% for item in files %}
-          <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
-            {{item['original name']}}</p>
-        {% endfor %}
+        <div class="column">
+          {% for item in files %}
+          <div class="row">
+            <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
+              {{item['original name']}}&emsp;{{item['timestamp'].strftime('%d-%m-%Y %H:%M')}}</p>
+          </div>
+          {% endfor %}
+        </div>
       </main>
       <aside>
         <h2>Users</h2>
-        {% for item in users %}
-          <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
-            {{item['name']}}</p>
-        {% endfor %}
+        <div class="column">
+          {% for item in users %}
+            <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
+              {{item['name']}}</p>
+          {% endfor %}
+        </div>
       </aside>
 
     </div>

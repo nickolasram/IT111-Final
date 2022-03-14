@@ -123,6 +123,7 @@ main {
 main,
 aside{
     border: 3px solid black;
+    overflow: auto;
 }
 main h2,
 aside h2{
@@ -136,6 +137,13 @@ aside p{
     margin-left: 20px;
     margin-bottom: 15px;
 
+}
+.column{
+    display: inline-flex;
+    flex-direction:column-reverse;
+}
+.row{
+    display: inline-flex;
 }
 aside {
     height: 500px;

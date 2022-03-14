@@ -1,6 +1,4 @@
-import os
 from flask import Flask, render_template, session, redirect, flash, request
-from users import users
 from user_file.user_file import User_file
 from second import second
 from databaseconfig import repo, filecol, usercol
@@ -14,9 +12,6 @@ app.add_url_rule(
 )
 
 ALLOWED_EXTENSIONS = {'txt'}
-
-
-
 
 
 def allowed_file(filename):
