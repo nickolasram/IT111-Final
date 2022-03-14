@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, flash, request
+from flask import Flask, render_template, session, redirect, flash, request, send_from_directory
 from user_file.user_file import User_file
 from second import second
 from databaseconfig import repo, filecol, usercol
@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 app.register_blueprint(second, url_prefix="/user")
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
+app.config['UPLOAD_FOLDER'] = repo
 app.add_url_rule(
     "/uploaded/<name>", endpoint="download_file", build_only=True
 )
@@ -51,6 +52,9 @@ def dashboard():
   users = usercol.find({})
   return render_template('dashboard.html', files=files, users=users, user=session['user']['name'])
 
+@app.route('/uploads/<name>')
+def download_file(name):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=5000)
