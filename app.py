@@ -15,7 +15,10 @@ app.add_url_rule(
 
 ALLOWED_EXTENSIONS = {'txt'}
 
-files = os.listdir(repo)
+files = filecol.find({})
+users = usercol.find({})
+
+
 
 
 def allowed_file(filename):
@@ -35,20 +38,24 @@ def home():
 def login():
   return render_template('login.html')
 
-
-@app.route('/dashboard/', methods=['GET', 'POST'])
-def dashboard():
+@app.route('/uploadfile/', methods=['GET', 'POST'])
+def uploadfile():
   if request.method == 'POST':
     if 'file' not in request.files:
       flash('No file part')
       return redirect(request.url)
     file = request.files['file']
+
     if file.filename == '':
       flash('No selected file')
       return redirect(request.url)
     if file and allowed_file(file.filename):
       return User_file.upload(User_file, file)
-  return render_template('dashboard.html', files=filecol, users=usercol, user=session['user']['name'])
+  return render_template('upload.html')
+
+@app.route('/dashboard/')
+def dashboard():
+  return render_template('dashboard.html', files=files, users=users, user=session['user']['name'])
 
 
 if __name__ == '__main__':

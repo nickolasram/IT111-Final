@@ -10,16 +10,6 @@ $('#login').click(function(e){
       e.preventDefault()
   });
 
-$('.uploadbutton').click(function(e){
-      $('.uploadwrapper').removeClass("hidden");
-      e.preventDefault()
-  });
-
-$('.close').click(function(e){
-      $('.uploadwrapper').addClass("hidden");
-      e.preventDefault()
-  });
-
  $("form[name=signup_form").submit(function(e) {
 
   var $form = $(this);

@@ -7,7 +7,7 @@
         <li>{{ user }}</li>
         <li><a href="/user/signout">Log out</a></li>
       </ul>
-      <a href="" class="uploadbutton">
+      <a href="/uploadfile/" class="uploadbutton">
         <svg height="100" width="100">
           <g transform="scale(0.5)">
             <circle cx="50" cy="50" r="40" stroke="#333" stroke-width="4" fill="lightgrey"/>
@@ -33,15 +33,6 @@
         {% endfor %}
       </aside>
 
-    </div>
-
-    <div class="uploadwrapper hidden">
-      <a href="#" class="close">x</a>
-      <h2>Upload new File</h2>
-      <form method=post enctype=multipart/form-data name="upload-file">
-        <input type=file name=file>
-        <input type=submit value=Upload>
-      </form>
     </div>
 
   </body>

@@ -173,7 +173,7 @@ aside svg{
        }
 
 /* UPLOAD FILE CARD */
-.uploadwrapper{
+#uploadwrapper{
     width: 330px;
     height: 60px;
     background: #ccc;
@@ -183,16 +183,6 @@ aside svg{
     border-radius: 3px;
     position: relative;
 }
-.close{
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  padding: 0 5px;
-  font-family: sans-serif;
-}
-.uploadwrapper h2{
+#uploadwrapper h2{
   margin-bottom: 10px;
 }
