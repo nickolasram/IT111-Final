@@ -15,8 +15,6 @@ app.add_url_rule(
 
 ALLOWED_EXTENSIONS = {'txt'}
 
-files = filecol.find({})
-users = usercol.find({})
 
 
 
@@ -45,7 +43,6 @@ def uploadfile():
       flash('No file part')
       return redirect(request.url)
     file = request.files['file']
-
     if file.filename == '':
       flash('No selected file')
       return redirect(request.url)
@@ -55,8 +52,24 @@ def uploadfile():
 
 @app.route('/dashboard/')
 def dashboard():
+  files = filecol.find({})
+  users = usercol.find({})
   return render_template('dashboard.html', files=files, users=users, user=session['user']['name'])
 
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=5000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
