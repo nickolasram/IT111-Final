@@ -168,6 +168,36 @@ main svg,
 aside svg{
     vertical-align: middle;
 }
+.triangle-svg{
+         position: relative;
+         top: 9px;
+       }
+       @keyframes jump {
+         0% {
+           transform: translateX(0px);
+           opacity:0;
+         }
+         10% {
+           transform: translateX(0px);
+           opacity:0.1;
+         }
+         50% {
+           transform: translateX(10px);
+           opacity:1;
+         }
+         90% {
+           transform: translateX(20px);
+           opacity:0.1;
+         }
+         95% {
+           transform: translateX(20px);
+           opacity:00;
+         }
+         100% {
+           transform: translateX(20px);
+           opacity:0;
+         }
+       }
 /* PROFILE PAGE */
 .profile main{
   margin-right: 160px;
