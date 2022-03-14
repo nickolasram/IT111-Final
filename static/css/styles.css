@@ -166,6 +166,7 @@ aside {
 }
 main svg,
 aside svg{
+    animation: jump 1.5s ease infinite;
     vertical-align: middle;
 }
 .triangle-svg{

@@ -4,7 +4,7 @@
   <body class="profile">
     <header>
      <ul>
-       <li><a href="{{url_for('user_profile', user={{ current_user }})}}">{{ current_user }}</a></li>
+       <li><a href="{{url_for('user_profile', user=current_user)}}">{{ current_user }}</a></li>
        <li><a href="/user/signout">Log out</a></li>
      </ul>
      <a href="/uploadfile/" class="uploadbutton">
