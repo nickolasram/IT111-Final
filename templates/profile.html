@@ -3,16 +3,26 @@
 {% block content %}
   <body class="profile">
     <header>
-     <ul>
-       <li><a href="{{url_for('user_profile', user=current_user)}}">{{ current_user }}</a></li>
-       <li><a href="/user/signout">Log out</a></li>
-     </ul>
-     <a href="/uploadfile/" class="uploadbutton">
-       <svg height="100" width="100">
-         <g transform="scale(0.5)">
-           <circle cx="50" cy="50" r="40" stroke="#333" stroke-width="4" fill="lightgrey"/>
-           <polygon points="45,15 55,15 55,15 55,45 85,45 85,55 55,55 55,85 45,85 45,55 15,55 15,45 45,45" stroke="black" fill="grey"/>
-         </g>
+      <div class="panel">
+          <ul>
+           <li><a href="{{url_for('user_profile', user=current_user)}}">{{ current_user }}</a></li>
+           <li><a href="/user/signout">Log out</a></li>
+         </ul>
+         <a href="/uploadfile/" class="uploadbutton">
+           <svg height="100" width="100">
+             <g transform="scale(0.5)">
+               <circle cx="50" cy="50" r="40" stroke="#333" stroke-width="4" fill="lightgrey"/>
+               <polygon points="45,15 55,15 55,15 55,45 85,45 85,55 55,55 55,85 45,85 45,55 15,55 15,45 45,45" stroke="black" fill="grey"/>
+             </g>
+           </svg>
+         </a>
+          <a href="https://github.com/nickolasram/IT111-Final.git" class="github">
+            <img src="../static/images/GHM.png" alt="gitub logo. to github repo.">
+          </a>
+      </div>
+      <a href="/dashboard/" class="back">
+       <svg height="55" width="123">
+         <polygon points="0,22 20,2 120,2 120,45 20,45" stroke-width="2" stroke="white" fill="grey"/>
        </svg>
      </a>
     </header>
