@@ -9,7 +9,7 @@ app.register_blueprint(second, url_prefix="/user")
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
 app.config['UPLOAD_FOLDER'] = repo
 app.add_url_rule(
-    "/uploaded/<name>", endpoint="download_file", build_only=True
+    "/uploads/<name>", endpoint="download_file", build_only=True
 )
 
 ALLOWED_EXTENSIONS = {'txt'}

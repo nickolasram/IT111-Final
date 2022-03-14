@@ -23,7 +23,7 @@
         <div class="column">
           {% for item in files %}
           <div class="row">
-            <a href="{{redirect(url_for('download_file', name=item['name']))}}">
+            <a href="{{url_for('download_file', name=item['name'])}}">
               <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
                 {{item['original name']}}&emsp;by {{item['author']}}&emsp;at {{item['timestamp'].strftime('%d-%m-%Y %H:%M')}}</p>
             </a>
