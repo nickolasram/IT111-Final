@@ -4,7 +4,7 @@
   <body class="dashboard">
     <header>
       <ul>
-        <li>{{ user }}</li>
+        <li><a href="{{url_for('user_profile', user={{ user }}}}">{{ user }}</a></li>
         <li><a href="/user/signout">Log out</a></li>
       </ul>
       <a href="/uploadfile/" class="uploadbutton">
@@ -25,7 +25,7 @@
           <div class="row">
             <a href="{{url_for('download_file', name=item['name'])}}">
               <p> <svg height="30" width="15" class="triangle-svg"><polygon points="0,10 0,20 10,15" class="triangle"/></svg>
-                {{item['original name']}}&emsp;by {{item['author']}}&emsp;at {{item['timestamp'].strftime('%d-%m-%Y %H:%M')}}</p>
+                {{item['original name']}}&emsp;&ensp;by&ensp; {{item['author']}}&emsp;&ensp;at {{item['timestamp'].strftime('%d-%m-%Y %H:%M')}}</p>
             </a>
           </div>
           {% endfor %}
