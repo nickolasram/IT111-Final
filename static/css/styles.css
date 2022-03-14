@@ -86,10 +86,9 @@ header a{
 }
 header ul{
     float: right;
-    margin-right: 45px;
+    margin-right: 65px;
     margin-top: 20px;
     margin-bottom: 10px;
-    border-radius: 0 0 20px 0;
 }
 header li{
     background: grey;
@@ -98,9 +97,10 @@ header li{
     border: 2px solid white;
     display: block;
     position: relative;
-    border-radius: 0 0 20px 0;
+    border-radius: 5px;
     font-weight: bold;
     color: white;
+    margin-bottom: 5px;
 }
 header svg{
     float: right;
@@ -118,6 +118,7 @@ main,
 aside{
     border: 3px solid black;
     overflow: auto;
+    margin-top: 75px;
 }
 main h2,
 aside h2{
