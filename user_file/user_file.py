@@ -27,10 +27,9 @@ class User_file:
         path = os.path.join(repo, filename)
         file.save(path)
         os.rename(path, os.path.join(repo, name))
-        usercol.updateOne(
+        usercol.update_one(
             {"name": author},
             {"$push": {"uploads": (name, original, timestamp)}}
         )
-        print(usercol.find({"name": author}))
         return redirect(url_for('dashboard'))
 

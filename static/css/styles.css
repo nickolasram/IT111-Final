@@ -164,34 +164,14 @@ main svg,
 aside svg{
     vertical-align: middle;
 }
-.triangle {
-        animation: jump 1.5s ease infinite;
-       }
-       @keyframes jump {
-         0% {
-           opacity:0;
-         }
-         10% {
-           opacity:0.1;
-         }
-         50% {
-           opacity:1;
-         }
-         90% {
-           opacity:0.1;
-         }
-         95% {
-           opacity:00;
-         }
-         100% {
-           opacity:0;
-         }
-       }
-
+/* PROFILE PAGE */
+.profile main{
+  margin-right: 160px;
+}
 /* UPLOAD FILE CARD */
 #uploadwrapper{
     width: 370px;
-    height: 100px;
+    height: 130px;
     background: #ccc;
     padding: 15px;
     margin: 150px auto;
