@@ -2,7 +2,7 @@
 
 ## Setting up your environment on an ubuntu AWS server:
 1. Make sure your ports 5000, 22, and 80 are open in your security settings
-2. make sure your server is updated with sudo apt update
+2. Make sure your server is updated with sudo apt update
 3. sudo apt install python3-pip
 4. sudo pip install passlib
 5. sudo pip install pymongo
