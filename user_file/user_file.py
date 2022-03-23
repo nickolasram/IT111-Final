@@ -22,14 +22,17 @@ class User_file:
             "timestamp": timestamp,
             "author": author
         }
-        filecol.insert_one(upload)
-        filename = secure_filename(file.filename)
-        path = os.path.join(repo, filename)
-        file.save(path)
-        os.rename(path, os.path.join(repo, name))
-        usercol.update_one(
-            {"name": author},
-            {"$push": {"uploads": (name, original, timestamp)}}
-        )
-        return redirect(url_for('dashboard'))
-
+        try:
+            filename = secure_filename(file.filename)
+            path = os.path.join(repo, filename)
+            file.save(path)
+            os.rename(path, os.path.join(repo, name))
+            usercol.update_one(
+                {"name": author},
+                {"$push": {"uploads": (name, original, timestamp)}}
+            )
+        except:
+            return redirect(url_for('dashboard'))
+        else:
+            filecol.insert_one(upload)
+            return redirect(url_for('dashboard'))
